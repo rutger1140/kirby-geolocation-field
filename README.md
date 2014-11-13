@@ -6,7 +6,7 @@ GeoCoder is used to search for address entries.
 
 ## Installation
 
-Put the <code>geolocation</code> folder in <code>/site/fields</code>
+[Download the files](https://github.com/lekkerduidelijk/kirby-geolocation-field/archive/master.zip) and put them in a folder named <code>geolocation</code>, inside the <code>/site/fields</code> folder. If the fields folder doesn't exist, create it.
 
 ## How to use it
 
