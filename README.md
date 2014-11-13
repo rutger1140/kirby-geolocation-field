@@ -19,3 +19,4 @@ fields:
 ```
 
 ## Example
+![Example of Geolocation](https://raw.githubusercontent.com/lekkerduidelijk/kirby-geolocation-field/master/geolocation-field.gif)
