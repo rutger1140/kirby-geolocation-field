@@ -10,7 +10,7 @@ Put the <code>geolocation</code> folder in <code>/site/fields</code>
 
 ## How to use it
 
-In your blueprint add the following field:
+In your [blueprint](http://getkirby.com/docs/panel/blueprints) add the following field:
 ```
 fields:
   location:
