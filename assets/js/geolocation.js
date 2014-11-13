@@ -2,7 +2,7 @@
  * Geolocation field for Kirby 2
  *
  * @author: Rutger Laurman - Lekkerduidelijk.nl
- * @version: 0.1
+ * @version: 0.2
  */
 
 var debug = false,
@@ -98,19 +98,18 @@ Geolocation = (function($){
   function buildGmap() {
     log("Geolocation.buildGmap()");
 
+    // Create location object and geocoder
     var markerLocation = new google.maps.LatLng(s.currentLat,s.currentLng);
     geocoder = new google.maps.Geocoder();
 
-
-
+    // If this is not the default location, zoom in
     if(s.currentLat != s.defaultLat && s.currentLng != s.defaultLng)
       s.mapDefaults.zoom = 15;
 
+    // Build the map
     var mapOptions = $.extend({}, s.mapDefaults, {
-//      zoom: 15,
       center: new google.maps.LatLng(s.currentLat,s.currentLng),
       minZoom: 6,
-      styles: []
     });
     map = new google.maps.Map(s.mapcanvas[0], mapOptions);
 
@@ -146,17 +145,21 @@ Geolocation = (function($){
   function removeMarkers() {
     log("Geolocation.removeMarkers()");
 
+    // Loop through all markers and remove map reference
     for (var i = 0; i < markers.length; i++) {
       markers[i].setMap(null);
     }
+
+    // Clear array
     markers = [];
   }
 
   function dragEndEvent() {
     log("Geolocation.dragEndEvent()");
 
-    var marker = this;
-    storeLocation(marker.getPosition(), false);
+    // Get marker position and store it
+    var location = this.getPosition();
+    storeLocation(location, false);
   }
 
   // Move map and store location
@@ -187,11 +190,12 @@ Geolocation = (function($){
     var $field  = $("#geo-search-field"),
         $submit = $("#geo-search-submit");
 
-    // Attempt to prevent field submit
+    // @TODO: Combine these events into a more DRY approach
+
+    // Handle event for enter keypress
     $field.keypress(function(e) {
       if (e.which == 13) {
         e.preventDefault();
-
         var address = $field.val();
         if(address == "") {
           $field.focus();
@@ -202,6 +206,7 @@ Geolocation = (function($){
       }
     });
 
+    // Handle click event on search button
     $submit.on("click",function(e){
       e.preventDefault();
       var address = $field.val();
@@ -211,7 +216,6 @@ Geolocation = (function($){
       } else {
         doSearch(address);
       }
-
     });
   }
 

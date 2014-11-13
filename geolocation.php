@@ -3,7 +3,7 @@
  * Geolocation panel field for Kirby 2
  *
  * @author: Rutger Laurman - lekkerduidelijk.nl
- * @version: 0.1
+ * @version: 0.2
  *
  */
 
