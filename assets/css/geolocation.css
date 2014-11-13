@@ -1,0 +1,30 @@
+/**
+ * Geolocation field for Kirby 2
+ *
+ * @author: Rutger Laurman - Lekkerduidelijk.nl
+ * @version: 0.1
+ */
+
+.gmap {
+  border: 2px solid #ddd;
+  height: 450px;
+  margin: 1em 0;
+  width: 100%;
+}
+
+/* Fixes dimensions of google maps controls */
+.gmap img {
+  max-width: none;
+}
+
+.mapsearch-field,
+.mapsearch-button {
+  display: inline-block;
+}
+.mapsearch-field {
+  width: 75%;
+}
+.mapsearch-button {
+  margin-top: -4px;
+  margin-left: 1.5em;
+}
