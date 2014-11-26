@@ -18,5 +18,10 @@ fields:
     type: geolocation
 ```
 
+In your [template](http://getkirby.com/docs/templates) you can use the field like:
+```php
+<?php echo $page->location(); ?>
+```
+
 ## Example
 ![Example of Geolocation](https://raw.githubusercontent.com/lekkerduidelijk/kirby-geolocation-field/master/geolocation-field.gif)
