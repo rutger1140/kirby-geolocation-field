@@ -23,5 +23,7 @@ In your [template](http://getkirby.com/docs/templates) you can use the field lik
 <?php echo $page->location(); ?>
 ```
 
+_See [issue #1](https://github.com/lekkerduidelijk/kirby-geolocation-field/issues/1#issuecomment-64706089)_.
+
 ## Example
 ![Example of Geolocation](https://raw.githubusercontent.com/lekkerduidelijk/kirby-geolocation-field/master/geolocation-field.gif)
