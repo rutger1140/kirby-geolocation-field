@@ -67,14 +67,14 @@ class GeolocationField extends InputField {
     // Search field
     $input = new Brick("input");
     $input->attr("id", "geo-search-field");
-    $input->attr("placeholder","Zoek naar locatie");
+    $input->attr("placeholder","Search for a location");
     $input->addClass("input mapsearch-field");
 
     // Search button
     $button = new Brick("input");
     $button->attr("id", "geo-search-submit");
     $button->attr("type", "button");
-    $button->attr("value", "Zoek");
+    $button->attr("value", "Search");
     $button->addClass("btn btn-rounded mapsearch-button");
 
     $mapsearch->append($input);
