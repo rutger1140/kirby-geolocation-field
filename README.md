@@ -31,7 +31,7 @@ In your [template](http://getkirby.com/docs/templates) you can use the field lik
 * Make sure to use 'location' as fieldname in your blueprint or change the selector in geolocation.js accordingly.
 ([See issue #2](https://github.com/lekkerduidelijk/kirby-geolocation-field/issues/2))
 
-* Make sure to refresh the panel after chancing your blueprint. 
+* Make sure to refresh the panel after changing your blueprint. 
 ([See issue #3](https://github.com/lekkerduidelijk/kirby-geolocation-field/issues/3))
 
 **2. The latitude and longtitude show as one string in my template**
