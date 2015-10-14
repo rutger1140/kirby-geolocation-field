@@ -39,6 +39,10 @@ In your [template](http://getkirby.com/docs/templates) you can use the field lik
 Due to limitations in the Kirby core you need to split the string yourself in the template. 
 ([See issue #1](https://github.com/lekkerduidelijk/kirby-geolocation-field/issues/1#issuecomment-64706089))
 
+**3. Your plugin doesn't work with plugin _x_ and _y_**
+
+The plugin should work with the most recent version of Kirby. If you've found a bug with the plugin please [create a new issue](https://github.com/lekkerduidelijk/kirby-geolocation-field/issues/new). 
+I can't guarantee the plugin works with other Kirby plugins. If you run into issues try to reach out to the other plugin creator as well. Maybe we can work something out.
 
 ## Example
 ![Example of Geolocation](https://raw.githubusercontent.com/lekkerduidelijk/kirby-geolocation-field/master/geolocation-field.gif)
