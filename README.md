@@ -44,5 +44,9 @@ Due to limitations in the Kirby core you need to split the string yourself in th
 The plugin should work with the most recent version of Kirby. If you've found a bug with the plugin please [create a new issue](https://github.com/lekkerduidelijk/kirby-geolocation-field/issues/new). 
 I can't guarantee the plugin works with other Kirby plugins. If you run into issues try to reach out to the other plugin creator as well. Maybe we can work something out.
 
+**4. Can you add feature _x_?**
+
+In short: no. The plugin is provided as is. Please feel free to fork or create a pull request with your changes.
+
 ## Example
 ![Example of Geolocation](https://raw.githubusercontent.com/lekkerduidelijk/kirby-geolocation-field/master/geolocation-field.gif)
