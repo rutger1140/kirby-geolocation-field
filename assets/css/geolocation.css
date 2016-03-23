@@ -5,26 +5,52 @@
  * @version: 0.2
  */
 
-.gmap {
+.geolocation-map {
   border: 2px solid #ddd;
-  height: 450px;
+  height: 55vh;
   margin: 1em 0;
   width: 100%;
 }
 
 /* Fixes dimensions of google maps controls */
-.gmap img {
+.geolocation-map img {
   max-width: none;
 }
 
-.mapsearch-field,
-.mapsearch-button {
+.geolocation-search-field {
   display: inline-block;
+  width: 100%;
 }
-.mapsearch-field {
-  width: 75%;
+
+.geolocation-search-button {
+  display: inline-block;
+  margin-top: 0.5em;
 }
-.mapsearch-button {
-  margin-top: -4px;
-  margin-left: 1.5em;
+
+.geolocation-input {
+  display: none;
+}
+
+.geolocation-field-lat, .geolocation-field-lng {
+  margin-bottom: 0.5em;
+}
+
+@media screen and (min-width: 60em) {
+  .geolocation-search-field {
+    width: 70%;
+  }
+
+  .geolocation-search-button {
+    margin-left: 1.5em;
+    margin-top: 0;
+  }
+
+  .geolocation-field-lat, .geolocation-field-lng {
+    width: calc(50% - 0.25em);
+    display: inline-block;
+  }
+
+  .geolocation-field-lng {
+    margin-left: 0.5em;
+  }
 }
