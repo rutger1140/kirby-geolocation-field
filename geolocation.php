@@ -13,7 +13,6 @@ class GeolocationField extends InputField {
     $this->type         = "text";
     $this->icon         = "map-marker";
     $this->label        = l::get("fields.location.label", "Location");
-    $this->placeholder  = l::get("fields.location.placeholder", "Coordinates in format: Latitude, Longitude like: 1.2345,2.3456");
     $this->readonly     = false;
   }
 
