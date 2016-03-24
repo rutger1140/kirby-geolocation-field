@@ -108,9 +108,9 @@ new function() {
     },
 
     initializeSearchField: function() {
-      var searchField  = this.container.querySelector('.geolocation-search-field'),
-          searchButton = this.container.querySelector('.geolocation-search-button'),
-          that = this;
+      var searchField  = this.container.querySelector('.geolocation-search-field');
+      var searchButton = this.container.querySelector('.geolocation-search-button');
+      var that = this;
 
       // Handle event for enter keypress
       searchField.addEventListener('keypress', function(event) {
