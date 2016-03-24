@@ -175,12 +175,6 @@ new function() {
     }
   }
 
-  function createGeolocation(element) {
-    loadGoogleMaps(function() {
-      new Geolocation(element);
-    });
-  }
-
   jQuery.fn.location = function() {
     // this == the input field. The container div is
     // two levels up:
