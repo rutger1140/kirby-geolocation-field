@@ -31,7 +31,7 @@
   display: none;
 }
 
-.geolocation-field-lat, .geolocation-field-lng {
+.geolocation-field-lat {
   margin-bottom: 0.5em;
 }
 
@@ -52,5 +52,8 @@
 
   .geolocation-field-lng {
     margin-left: 0.5em;
+  }
+  .geolocation-field-lat {
+    margin-bottom: inherit;
   }
 }

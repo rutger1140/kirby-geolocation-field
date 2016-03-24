@@ -55,16 +55,16 @@ class GeolocationField extends InputField {
     $inputfield->append($this->input());
 
     $latInputfield = new Brick("div");
-    $latInputfield->addClass("field-content field geolocation-field-lat");
+    $latInputfield->addClass("field-content geolocation-field-lat");
     $latInputfield->append($this->inputElement("geolocation-input-lat input", "Latitude"));
     $latInputfield->append($this->icon());
 
     $lngInputfield = new Brick("div");
-    $lngInputfield->addClass("field-content field geolocation-field-lng");
+    $lngInputfield->addClass("field-content geolocation-field-lng");
     $lngInputfield->append($this->inputElement("geolocation-input-lng input", "Longitude"));
     $lngInputfield->append($this->icon());
 
-    $content = $inputfield . $latInputfield . $lngInputfield . $searchfield . $mapfield;
+    $content = $searchfield . $mapfield . $inputfield . $latInputfield . $lngInputfield;
 
     return $content;
   }
