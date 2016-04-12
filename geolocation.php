@@ -71,7 +71,7 @@ class GeolocationField extends InputField {
 
   public function mapsearch() {
     $mapsearch = new Brick("div");
-    $mapsearch->addClass("gelocation-search");
+    $mapsearch->addClass("geolocation-search");
 
     // Search field
     $input = new Brick("input");
