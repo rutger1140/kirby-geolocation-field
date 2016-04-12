@@ -175,7 +175,7 @@ new function() {
     }
   }
 
-  jQuery.fn.location = function() {
+  jQuery.fn.geolocation = function() {
     // this == the input field. The container div is
     // two levels up:
     var container = this[0].parentNode.parentNode;

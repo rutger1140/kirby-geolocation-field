@@ -12,7 +12,7 @@ class GeolocationField extends InputField {
   public function __construct() {
     $this->type         = "text";
     $this->icon         = "map-marker";
-    $this->label        = l::get("fields.location.label", "Location");
+    $this->label        = l::get("fields.geolocation.label", "Geolocation");
     $this->readonly     = false;
   }
 
@@ -28,7 +28,7 @@ class GeolocationField extends InputField {
   public function input() {
     $input = parent::input();
     $input->addClass("geolocation-input");
-    $input->data("field", "location");
+    $input->data("field", "geolocation");
     return $input;
   }
 
