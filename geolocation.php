@@ -10,72 +10,79 @@
 class GeolocationField extends InputField {
 
   public function __construct() {
-    $this->type         = 'text';
-    $this->icon         = 'map-marker';
-    $this->label        = l::get('fields.location.label', 'Location');
-    $this->placeholder  = l::get('fields.location.placeholder', 'Coordinates');
-    $this->readonly     = true;
+    $this->type         = "text";
+    $this->icon         = "map-marker";
+    $this->label        = l::get("fields.geolocation.label", "Geolocation");
+    $this->readonly     = false;
   }
 
   static public $assets = array(
-    'js' => array(
-      'geolocation.js'
+    "js" => array(
+      "geolocation.js"
     ),
-    'css' => array(
-      'geolocation.css'
+    "css" => array(
+      "geolocation.css"
     )
   );
 
   public function input() {
     $input = parent::input();
-    $input->data('field','location');
+    $input->addClass("geolocation-input");
+    $input->data("field", "geolocation");
     return $input;
   }
 
   public function icon() {
-    $i = new Brick('i');
-    $i->addClass('icon fa fa-' . $this->icon);
-    $icon = new Brick('div');
-    $icon->addClass('field-icon');
+    $i = new Brick("i");
+    $i->addClass("icon fa fa-" . $this->icon);
+    $icon = new Brick("div");
+    $icon->addClass("field-icon");
     $icon->append($i);
     return $icon;
   }
 
   public function content() {
-    $searchfield = new Brick('div');
-    $searchfield->addClass('field-content');
+    $searchfield = new Brick("div");
+    $searchfield->addClass("field-content");
     $searchfield->append($this->mapsearch());
 
-    $mapfield = new Brick('div');
-    $mapfield->addClass('field-content');
-    $mapfield->append($this->map());
+    $mapfield = new Brick("div");
+    $mapfield->addClass("field-content");
+    $mapfield->append($this->elementWithClass("div", "geolocation-map"));
 
-    $inputfield = new Brick('div');
-    $inputfield->addClass('field-content');
+    $inputfield = new Brick("div");
+    $inputfield->addClass("field-content");
     $inputfield->append($this->input());
-    $inputfield->append($this->icon());
 
-    $content = $searchfield . $mapfield . $inputfield;
+    $latInputfield = new Brick("div");
+    $latInputfield->addClass("field-content geolocation-field-lat");
+    $latInputfield->append($this->inputElement("geolocation-input-lat input", "Latitude"));
+    $latInputfield->append($this->icon());
+
+    $lngInputfield = new Brick("div");
+    $lngInputfield->addClass("field-content geolocation-field-lng");
+    $lngInputfield->append($this->inputElement("geolocation-input-lng input", "Longitude"));
+    $lngInputfield->append($this->icon());
+
+    $content = $searchfield . $mapfield . $inputfield . $latInputfield . $lngInputfield;
 
     return $content;
   }
 
   public function mapsearch() {
-    $mapsearch = new Brick('div');
-    $mapsearch->addClass('mapsearch');
+    $mapsearch = new Brick("div");
+    $mapsearch->addClass("geolocation-search");
 
     // Search field
     $input = new Brick("input");
-    $input->attr("id", "geo-search-field");
-    $input->attr("placeholder","Search for a location");
-    $input->addClass("input mapsearch-field");
+    $input->attr("placeholder","Search for an address (optional)");
+    $input->addClass("geolocation-search-field input");
 
     // Search button
     $button = new Brick("input");
-    $button->attr("id", "geo-search-submit");
     $button->attr("type", "button");
     $button->attr("value", "Search");
-    $button->addClass("btn btn-rounded mapsearch-button");
+    $button->addClass("geolocation-search-button btn btn-rounded");
 
     $mapsearch->append($input);
     $mapsearch->append($button);
@@ -83,9 +90,17 @@ class GeolocationField extends InputField {
     return $mapsearch;
   }
 
-  public function map() {
-    $element = new Brick('div');
-    $element->addClass('gmap');
+  public function inputElement($class, $placeholder) {
+    $element = $this->elementWithClass("input", $class);
+    if ($placeholder) {
+      $element->attr("placeholder", $placeholder);
+    }
+    return $element;
+  }
+
+  public function elementWithClass($element, $class) {
+    $element = new Brick($element);
+    $element->addClass($class);
     return $element;
   }
 }
