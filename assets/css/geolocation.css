@@ -48,12 +48,14 @@
   .geolocation-field-lat, .geolocation-field-lng {
     width: calc(50% - 0.25em);
     display: inline-block;
+    vertical-align: top;
   }
 
   .geolocation-field-lng {
     margin-left: 0.5em;
   }
+
   .geolocation-field-lat {
-    margin-bottom: inherit;
+    margin-bottom: 0;
   }
 }
