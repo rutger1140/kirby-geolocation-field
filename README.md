@@ -6,7 +6,7 @@ GeoCoder is used to search for address entries.
 
 ## Installation
 
-[Download the files](https://github.com/lekkerduidelijk/kirby-geolocation-field/archive/master.zip) and put them in a folder named <code>geolocation</code>, inside the <code>/site/fields</code> folder. If the fields folder doesn't exist, create it.
+[Download the files](https://github.com/lekkerduidelijk/kirby-geolocation-field/archive/master.zip) and put them in a folder named <code>geolocation</code>, inside the <code>/site/fields</code> folder. If the fields folder doesn't exist, create it. 
 
 ## How to use it
 
@@ -18,6 +18,12 @@ fields:
     type: geolocation
 ```
 
+In [geolocation.js](https://github.com/lekkerduidelijk/kirby-geolocation-field/blob/master/assets/js/geolocation.js#L152) you need to set your [Google Maps API key](https://developers.google.com/maps/documentation/javascript/get-api-key). Google recently changed it's policy regarding Google Map implementations and it won't work without it. ([See issue #9](https://github.com/lekkerduidelijk/kirby-geolocation-field/issues/9))
+```js
+// Obtain key from https://developers.google.com/maps/documentation/javascript/get-api-key
+var apiKey = "";
+
+```
 
 In your [template](http://getkirby.com/docs/templates) you can use the field like:
 ```php
