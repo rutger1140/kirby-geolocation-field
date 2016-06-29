@@ -2,9 +2,9 @@
  * Geolocation field for Kirby 2
  *
  * @author: Rutger Laurman - Lekkerduidelijk.nl
- * @version: 0.2
+ * @version: 0.3
  */
-new function() {
+(function() {
   function Geolocation(container) {
     this.container = container;
     this.mapElement = container.querySelector('.geolocation-map');
@@ -22,7 +22,7 @@ new function() {
       mapTypeControl: false,
       streetViewControl: false,
       scrollwheel: false,
-      zoom: this.latLng ? 15 : 1,
+      zoom: this.latLng ? 15 : 2,
       minZoom: 1,
       center: this.latLng || this.defaultLatLng
     });
@@ -83,8 +83,7 @@ new function() {
       var fieldValue = this.inputElement.value;
       var hasLatLon = /^(\-?\d+(\.\d+)?),\s*(\-?\d+(\.\d+)?)$/.test(fieldValue);
       var parts = fieldValue.split(',');
-      var latLng = this._latLng = hasLatLon
-        ? {
+      var latLng = this._latLng = hasLatLon ? {
           lat: Number(parts[0]),
           lng: Number(parts[1])
         }
@@ -129,7 +128,7 @@ new function() {
 
       function performSearch() {
         var address = searchField.value;
-        if (address == '') {
+        if (address === '') {
           return searchField.focus();
         }
         that.geolocateAddress(address, function(error, latLng) {
@@ -145,9 +144,17 @@ new function() {
     }
   };
 
-  var loadGoogleMaps = new function() {
+  var loadGoogleMaps = (function() {
     var callbacks = [];
     var loading = false;
+
+    // Obtain key from https://developers.google.com/maps/documentation/javascript/get-api-key
+    var apiKey = "";
+
+    if(apiKey === "") {
+      alert("[!] Please set a Google Maps API key in geolocation.js:152");
+    }
+
     function loadMaps() {
       window._onGoogleMapsLoaded = function() {
         delete window._onGoogleMapsLoaded;
@@ -158,8 +165,9 @@ new function() {
       };
       var script = document.createElement('script');
       script.type = 'text/javascript';
-      script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' +
-            'callback=window._onGoogleMapsLoaded';
+      script.src = 'https://maps.googleapis.com/maps/api/js?' +
+            'key=' + apiKey +
+            '&callback=window._onGoogleMapsLoaded';
       document.body.appendChild(script);
     }
 
@@ -172,8 +180,8 @@ new function() {
         $(loadMaps);
         loading = true;
       }
-    }
-  }
+    };
+  })();
 
   jQuery.fn.geolocation = function() {
     // this == the input field. The container div is
@@ -182,5 +190,5 @@ new function() {
     loadGoogleMaps(function() {
       new Geolocation(container);
     });
-  }
-}
+  };
+})();
