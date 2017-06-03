@@ -101,6 +101,7 @@ class GeolocationField extends InputField {
   public function elementWithClass($element, $class) {
     $element = new Brick($element);
     $element->addClass($class);
+    $element->data('key', c::get('geolocation-key', ''));
     return $element;
   }
 }

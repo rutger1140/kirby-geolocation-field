@@ -148,14 +148,15 @@
     var callbacks = [];
     var loading = false;
 
-    // Obtain key from https://developers.google.com/maps/documentation/javascript/get-api-key
-    var apiKey = "";
-
-    if(apiKey === "") {
-      alert("[!] Please set a Google Maps API key in geolocation.js:152");
-    }
-
     function loadMaps() {
+
+      // Obtain key from https://developers.google.com/maps/documentation/javascript/get-api-key
+      var apiKey = document.querySelector('.geolocation-map').getAttribute('data-key');
+
+      if(apiKey === "" || apiKey === null) {
+        alert("[!] Please set a Google Maps API key in your config file.");
+      }
+      
       window._onGoogleMapsLoaded = function() {
         delete window._onGoogleMapsLoaded;
         callbacks.forEach(function(callback) {
