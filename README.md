@@ -6,22 +6,27 @@ GeoCoder is used to search for address entries.
 
 ## Installation
 
-[Download the files](https://github.com/lekkerduidelijk/kirby-geolocation-field/archive/master.zip) and put them in a folder named <code>geolocation</code>, inside the <code>/site/fields</code> folder. If the fields folder doesn't exist, create it. 
+[Download the files](https://github.com/lekkerduidelijk/kirby-geolocation-field/archive/master.zip) and put them in a folder named <code>geolocation</code>, inside the <code>/site/fields</code> folder. If the fields folder doesn't exist, create it.
+
+To install the field as a submodule, you can use the following command:
+```
+git submodule add https://github.com/lekkerduidelijk/kirby-geolocation-field.git site/fields/geolocation
+```
 
 ## How to use it
 
 In your [blueprint](http://getkirby.com/docs/panel/blueprints) add the following field:
-```
+```yaml
 fields:
   location:
     label: Location
     type: geolocation
 ```
 
-In [geolocation.js](https://github.com/lekkerduidelijk/kirby-geolocation-field/blob/master/assets/js/geolocation.js#L152) you need to set your [Google Maps API key](https://developers.google.com/maps/documentation/javascript/get-api-key). Google recently changed it's policy regarding Google Map implementations and it won't work without it. ([See issue #9](https://github.com/lekkerduidelijk/kirby-geolocation-field/issues/9))
-```js
+In your config file, you need to set your [Google Maps API key](https://developers.google.com/maps/documentation/javascript/get-api-key) with the `geolocation-key` config variable. Google recently changed it's policy regarding Google Map implementations and it won't work without it. ([See issue #9](https://github.com/lekkerduidelijk/kirby-geolocation-field/issues/9))
+```php
 // Obtain key from https://developers.google.com/maps/documentation/javascript/get-api-key
-var apiKey = "";
+c::set('geolocation-key', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
 
 ```
 
